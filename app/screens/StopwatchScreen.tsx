@@ -63,7 +63,7 @@ export default function StopwatchScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#000000',
     padding: 20,
     alignItems: 'center',
     justifyContent: 'center',
@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   buttonTextReset: {
-    color: '#1e1e1e',
+    color: '#777777',
     fontSize: 18,
     fontWeight: '500',
   },

@@ -22,7 +22,7 @@ export default function ClockScreen() {
     <View style={styles.container}>
       <View style={styles.clockContainer}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
-            <MapPin color='#000' size={18} />
+            <MapPin color='#777777' size={18} />
             <Text style={styles.location}>{location}</Text>
         </View>
         <Text style={styles.time}>
@@ -36,8 +36,8 @@ export default function ClockScreen() {
       <View style={styles.footer}>
         <Text style={styles.greeting}>{getGreeting()}</Text>
         <View style={styles.iconContainer}>
-          <Moon size={24} color="#000" />
-          <Cloud size={24} color="#000" />
+          <Moon size={24} color="#777777" />
+          <Cloud size={24} color="#777777" />
         </View>
       </View>
     </View>
@@ -47,35 +47,40 @@ export default function ClockScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#000000',
     padding: 20,
   },
   location: {
     fontSize: 16,
-    color: '#666',
+    color: '#777777',
   },
   time: {
     fontSize: 32,
     fontWeight: 'bold',
     marginTop: 8,
+    color: '#777777',
   },
   clockContainer: {
     justifyContent: 'center',
     alignItems: 'center',
+    color: '#777777',
   },
   footer: {
     marginBottom: 40,
     justifyContent: 'center',
     alignItems: 'center',
+    color: '#777777',
   },
   greeting: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 8,
+    color: '#777777',
   },
   iconContainer: {
     flexDirection: 'row',
     gap: 8,
+    color: '#777777',
   },
 });
 

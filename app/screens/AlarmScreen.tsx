@@ -45,7 +45,7 @@ export default function AlarmScreen() {
             <Switch
               value={alarm.enabled}
               onValueChange={() => {}}
-              trackColor={{ false: '#767577', true: '#000' }}
+              trackColor={{ false: '#767577', true: '#1e1e1e' }}
               thumbColor="#fff"
             />
           </View>
@@ -58,8 +58,9 @@ export default function AlarmScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#000000',
     padding: 20,
+    color: '#777777'
   },
   header: {
     flexDirection: 'row',
@@ -69,34 +70,41 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
+    color: '#777777'
   },
   addButton: {
     padding: 8,
+    color: '#777777'
   },
   timeContainer: {
     alignItems: 'center',
     marginVertical: 40,
+    color: '#777777'
   },
   currentTime: {
     fontSize: 48,
     fontWeight: 'bold',
+    color: '#777777'
   },
   amPmContainer: {
     flexDirection: 'row',
     gap: 16,
     marginTop: 8,
+    color: '#777777'
   },
   amPm: {
     fontSize: 16,
-    color: '#666',
+    color: '#777777'
   },
   alarmList: {
     flex: 1,
+    color: '#777777'
   },
   sectionTitle: {
     fontSize: 18,
     fontWeight: '500',
     marginBottom: 16,
+    color: '#777777'
   },
   alarmItem: {
     flexDirection: 'row',
@@ -104,15 +112,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: '#eee',
+    borderBottomColor: '#777777',
+    color: '#777777'
   },
   alarmLabel: {
     fontSize: 16,
     marginBottom: 4,
+    color: '#777777'
   },
   alarmTime: {
     fontSize: 14,
-    color: '#666',
+    color: '#777777'
   },
 });
 

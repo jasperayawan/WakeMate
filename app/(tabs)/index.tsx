@@ -15,7 +15,7 @@ const App = () => {
       <StatusBar />
       <Tab.Navigator
       screenOptions={{
-        tabBarStyle: { backgroundColor: "#f8f8f8" },
+        tabBarStyle: { backgroundColor: "#000000", borderColor: 'transparent' },
       }}
     >
       <Tab.Screen
@@ -23,10 +23,10 @@ const App = () => {
         component={ClockScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <Clock size={24} color={focused ? "#000" : "rgba(0,0,0,0.5)"} />
+            <Clock size={24} color={focused ? "#777777" : "#777777"} />
           ),
           tabBarLabel: ({ focused }) => (
-            <Text style={{ color: focused ? "#000" : "rgba(0,0,0,0.5)", fontSize: 10 }}>Clock</Text>
+            <Text style={{ color: focused ? "#777777" : "#777777", fontSize: 10 }}>Clock</Text>
           ),
         }}
       />
@@ -37,11 +37,11 @@ const App = () => {
           tabBarIcon: ({ focused }) => (
             <AlarmClock
               size={24}
-              color={focused ? "#000" : "rgba(0,0,0,0.5)"}
+              color={focused ? "#777777" : "#777777"}
             />
           ),
           tabBarLabel: ({ focused }) => (
-            <Text style={{ color: focused ? "#000" : "rgba(0,0,0,0.5)", fontSize: 10 }}>Alarm</Text>
+            <Text style={{ color: focused ? "#777777" : "#777777", fontSize: 10 }}>Alarm</Text>
           ),
         }}
       />
@@ -52,11 +52,11 @@ const App = () => {
           tabBarIcon: ({ focused }) => (
             <WatchIcon
               size={24}
-              color={focused ? "#000" : "rgba(0,0,0,0.5)"}
+              color={focused ? "#777777" : "#777777"}
             />
           ),
           tabBarLabel: ({ focused }) => (
-            <Text style={{ color: focused ? "#000" : "rgba(0,0,0,0.5)", fontSize: 10 }}>Stopwatch</Text>
+            <Text style={{ color: focused ? "#777777" : "#777777", fontSize: 10 }}>Stopwatch</Text>
           ),
         }}
       />
