@@ -29,20 +29,33 @@ export default function StopwatchScreen() {
     setIsRunning(!isRunning);
   };
 
+  const handleReset = () => {
+    if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    setTime(0);
+    setIsRunning(false);
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.timeContainer}>
         <Text style={styles.time}>{formatTime(time)}</Text>
       </View>
 
-      <Pressable
-        style={[styles.button, isRunning && styles.buttonRunning]}
-        onPress={handleStartStop}
-      >
-        <Text style={styles.buttonText}>
-          {isRunning ? 'Stop' : 'Start'}
-        </Text>
-      </Pressable>
+     <View style={{ flexDirection: 'column', alignItems: 'center', gap: 4 }}>
+        <Pressable
+            style={[styles.button, isRunning && styles.buttonRunning]}
+            onPress={handleStartStop}
+        >
+            <Text style={styles.buttonText}>
+            {isRunning ? 'Stop' : 'Start'}
+            </Text>
+        </Pressable>
+        <Pressable style={styles.buttonReset} onPress={handleReset}>
+            <Text style={styles.buttonTextReset}>Reset</Text>
+        </Pressable>
+     </View>
     </View>
   );
 }
@@ -59,7 +72,7 @@ const styles = StyleSheet.create({
     width: 200,
     height: 200,
     borderRadius: 100,
-    backgroundColor: '#000',
+    backgroundColor: '#1e1e1e',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 40,
@@ -70,10 +83,22 @@ const styles = StyleSheet.create({
     fontFamily: 'monospace',
   },
   button: {
-    backgroundColor: '#000',
-    paddingHorizontal: 32,
+    backgroundColor: '#1e1e1e',
+    paddingHorizontal: 52,
     paddingVertical: 16,
     borderRadius: 8,
+  },
+  buttonReset: {
+    borderColor: '#1e1e1e',
+    borderWidth: 1,
+    paddingHorizontal: 48,
+    paddingVertical: 14,
+    borderRadius: 8,
+  },
+  buttonTextReset: {
+    color: '#1e1e1e',
+    fontSize: 18,
+    fontWeight: '500',
   },
   buttonRunning: {
     backgroundColor: '#666',

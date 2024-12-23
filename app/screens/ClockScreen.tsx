@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { Cloud, Moon } from 'lucide-react-native';
+import { Cloud, MapPin, Moon } from 'lucide-react-native';
 
 export default function ClockScreen() {
   const [time, setTime] = useState(new Date());
-  const [location] = useState('Indonesia');
+  const [location] = useState('Philipines');
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
@@ -20,8 +20,11 @@ export default function ClockScreen() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.location}>{location}</Text>
+      <View style={styles.clockContainer}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
+            <MapPin color='#000' size={18} />
+            <Text style={styles.location}>{location}</Text>
+        </View>
         <Text style={styles.time}>
           {time.toLocaleTimeString('en-US', {
             hour: '2-digit',
@@ -47,9 +50,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 20,
   },
-  header: {
-    marginTop: 40,
-  },
   location: {
     fontSize: 16,
     color: '#666',
@@ -60,12 +60,13 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   clockContainer: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
   footer: {
     marginBottom: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   greeting: {
     fontSize: 24,
