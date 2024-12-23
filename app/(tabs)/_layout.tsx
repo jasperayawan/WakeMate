@@ -1,45 +1,56 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import React from "react";
+import { useColorScheme } from "@/hooks/useColorScheme";
+import { AlarmClock, Clock, WatchIcon } from "lucide-react-native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+import ClockScreen from "../screens/ClockScreen";
+import AlarmScreen from "../screens/AlarmScreen";
+import StopwatchScreen from "../screens/StopwatchScreen";
+
+const Tab = createBottomTabNavigator();
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
   return (
-    <Tabs
+    <Tab.Navigator
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
-      <Tabs.Screen
-        name="index"
+        tabBarStyle: { backgroundColor: "#f8f8f8" },
+      }}
+    >
+      <Tab.Screen
+        name="Clock"
+        component={ClockScreen}
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          tabBarIcon: ({ focused }) => (
+            <Clock size={24} color={focused ? "#000" : "rgba(0,0,0,0.5)"} />
+          ),
         }}
       />
-      <Tabs.Screen
-        name="explore"
+      <Tab.Screen
+        name="Alarm"
+        component={AlarmScreen}
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          tabBarIcon: ({ focused }) => (
+            <AlarmClock
+              size={24}
+              color={focused ? "#000" : "rgba(0,0,0,0.5)"}
+            />
+          ),
         }}
       />
-    </Tabs>
+      <Tab.Screen
+        name="Stopwatch"
+        component={StopwatchScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <WatchIcon
+              size={24}
+              color={focused ? "#000" : "rgba(0,0,0,0.5)"}
+            />
+          ),
+        }}
+      />
+    </Tab.Navigator>
   );
 }
